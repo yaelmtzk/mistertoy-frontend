@@ -1,14 +1,10 @@
-// const { useState, useEffect } = React
-// const { Link } = ReactRouterDOM
-// const { useSelector, useDispatch } = ReactRedux
 
 import { useDispatch, useSelector } from 'react-redux'
 import { ToyFilter } from '../cmps/ToyFilter.jsx'
 import { ToyList } from '../cmps/ToyList.jsx'
-// import { toyService } from '../services/toy.service.js'
-import { toyService } from "../services/toy.service-local"
+import { toyService } from '../services/toy.service.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { loadToys, removeToy, removeToyOptimistic, saveToy, setFilterBy } from '../store/actions/toy.actions.js'
+import { loadToys, removeToyOptimistic, saveToy, setFilterBy } from '../store/actions/toy.actions.js'
 import { ADD_TOY_TO_CART } from '../store/reducers/toy.reducer.js'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
@@ -19,12 +15,14 @@ export function ToyIndex() {
     const toys = useSelector(storeState => storeState.toyModule.toys)
     const filterBy = useSelector(storeState => storeState.toyModule.filterBy)
     const isLoading = useSelector(storeState => storeState.toyModule.isLoading)
-
+    
+    
     useEffect(() => {        
         loadToys()
             .catch(() => {
                 showErrorMsg('Cannot load toys!')
             })
+        // console.log(filterBy);
     }, [filterBy])
 
     function onSetFilter(filterBy) {

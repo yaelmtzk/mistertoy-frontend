@@ -1,11 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { CHANGE_BY } from "../store/reducers/user.reducer.js"
 import { useState } from "react"
-import logoImg from '../assets/img/logo.png'
-
-// const { useState } = React
-// const { useSelector, useDispatch } = ReactRedux
-
 
 export function HomePage() {
     const dispatch = useDispatch()
@@ -13,8 +8,8 @@ export function HomePage() {
     const count = useSelector(storeState => storeState.userModule.count)
 
     function changeCount(diff) {
-        // setCount(count => count + diff)
-        // dispatch({ type: INCREMENT })
+        setCount(count => count + diff)
+        dispatch({ type: INCREMENT })
         dispatch({ type: CHANGE_BY, diff })
     }
 
@@ -29,7 +24,6 @@ export function HomePage() {
                     changeCount(10)
                 }}>+10</button>
             </h2 >
-            {/* <img src={logoImg} /> */}
             <img src="./logo.png" />
         </section >
     )

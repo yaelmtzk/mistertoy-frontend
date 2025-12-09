@@ -9,10 +9,9 @@ export const userService = {
     signup,
     getById,
     getLoggedinUser,
-    updateScore,
+    updateCredits,
     getEmptyCredentials
 }
-
 
 function login({ username, password }) {
 
@@ -25,14 +24,13 @@ function login({ username, password }) {
 }
 
 function signup({ username, password, fullname }) {
-    const user = { username, password, fullname, score: 10000 }
+    const user = { username, password, fullname, credits: 10000 }
     return httpService.post(BASE_URL + 'signup', user)
         .then(user => {
             if (user) return _setLoggedinUser(user)
             else return Promise.reject('Invalid signup')
         })
 }
-
 
 function logout() {
     return httpService.post(BASE_URL + 'logout')
@@ -41,18 +39,15 @@ function logout() {
         })
 }
 
-
-function updateScore(diff) {
-    if (getLoggedinUser().score + diff < 0) return Promise.reject('No credit')
+function updateCredits(diff) {
+    if (getLoggedinUser().credits + diff < 0) return Promise.reject('No credit')
     return httpService.put('user/', { diff })
         .then(user => {
-            console.log('updateScore user:', user)
+            console.log('updateCredits user:', user)
             _setLoggedinUser(user)
-            return user.score
+            return user.credits
         })
 }
-
-
 
 function getById(userId) {
     return httpService.get('user/' + userId)
@@ -64,11 +59,10 @@ function getLoggedinUser() {
 }
 
 function _setLoggedinUser(user) {
-    const userToSave = { _id: user._id, fullname: user.fullname, score: user.score }
+    const userToSave = { _id: user._id, fullname: user.fullname, credits: user.credits }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN, JSON.stringify(userToSave))
     return userToSave
 }
-
 
 function getEmptyCredentials() {
     return {
@@ -77,7 +71,6 @@ function getEmptyCredentials() {
         fullname: ''
     }
 }
-
 
 // Test Data
 // userService.signup({username: 'bobo', password: 'bobo', fullname: 'Bobo McPopo'})

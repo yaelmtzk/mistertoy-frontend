@@ -11,7 +11,6 @@ export function AppFooter() {
     const toysLength = useSelector(storeState => storeState.toyModule.toys.length)
     const shoppingCartLength = useSelector(storeState => storeState.toyModule.shoppingCart.length)
 
-
     return (
         <footer className='app-footer'>
             <h5>

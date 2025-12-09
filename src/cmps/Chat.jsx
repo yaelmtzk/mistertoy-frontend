@@ -13,7 +13,7 @@ export function Chat() {
         setMsgToSend('')
 
         setTimeout(() => {
-            const botMsg = { text: 'Sure, no problems', sender: 'bot' }
+            const botMsg = { text: 'Bot: Sure, no problems', sender: 'bot' }
             setMsgs(prevMsgs => [...prevMsgs, botMsg])
         }, 1000)
     }
