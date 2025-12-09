@@ -1,16 +1,21 @@
 // const { useState, useEffect, useRef } = React
-
 import { useEffect, useRef, useState } from "react"
+import { useSelector } from 'react-redux'
 import { utilService } from "../services/util.service.js"
+import { LabelSelector } from './LabelSelect.jsx'
+import { ToySort } from './ToySort.jsx'
 
 
-export function toyFilter({ filterBy, onSetFilter }) {
+export function ToyFilter({ filterBy, onSetFilter }) {
 
     const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
-    onSetFilter = useRef(utilService.debounce(onSetFilter, 300))
+
+    const debouncedOnSetFilter = useRef(utilService.debounce(onSetFilter, 300))
+
+    const labels = useSelector(storeState => storeState.toyModule.labels)
 
     useEffect(() => {
-        onSetFilter.current(filterByToEdit)
+       debouncedOnSetFilter.current(filterByToEdit)
     }, [filterByToEdit])
 
     function handleChange({ target }) {
@@ -19,15 +24,19 @@ export function toyFilter({ filterBy, onSetFilter }) {
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
     }
 
+    function onLabelChange(selectedLabels) {
+		setFilterByToEdit((prevFilter) => ({ ...prevFilter, labels: selectedLabels }))
+	}
+
     return (
         <section className="toy-filter full main-layout">
             <h2>Toys Filter</h2>
             <form >
-                <label htmlFor="vendor">Vendor:</label>
+                <label htmlFor="vendor">Name:</label>
                 <input type="text"
                     id="vendor"
                     name="txt"
-                    placeholder="By vendor"
+                    placeholder="By name"
                     value={filterByToEdit.txt}
                     onChange={handleChange}
                 />
@@ -40,18 +49,11 @@ export function toyFilter({ filterBy, onSetFilter }) {
                     value={filterByToEdit.maxPrice || ''}
                     onChange={handleChange}
                 />
-
-                <label htmlFor="minSpeed">Min Speed:</label>
-                <input type="number"
-                    id="minSpeed"
-                    name="minSpeed"
-                    placeholder="By min speed"
-                    value={filterByToEdit.minSpeed || ''}
-                    onChange={handleChange}
-                />
-
             </form>
 
+            <LabelSelector labels={labels} onLabelChange={onLabelChange} />
+
+            <ToySort filterBy={filterBy} onSetFilter={onSetFilter}/>
         </section>
     )
 }

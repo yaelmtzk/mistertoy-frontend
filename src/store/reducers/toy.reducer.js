@@ -1,4 +1,5 @@
-import { toyservice } from "../../services/toy.service.js"
+// import { toyService } from "../../services/toy.service.js"
+import { toyService } from "../../services/toy.service-local.js"
 
 //* toys
 export const SET_TOYS = 'SET_TOYS'
@@ -15,17 +16,19 @@ export const CLEAR_CART = 'CLEAR_CART'
 
 export const SET_FILTER_BY = 'SET_FILTER_BY'
 export const SET_IS_LOADING = 'SET_IS_LOADING'
+export const SET_LABELS = 'SET_LABELS'
 
 const initialState = {
     toys: [],
     isCartShown: false,
     shoppingCart: [],
     isLoading: false,
-    filterBy: toyservice.getDefaultFilter(),
-    lastToys: []
+    filterBy: toyService.getDefaultFilter(),
+    lastToys: [],
+    labels: []
 }
 
-export function carReducer(state = initialState, action = {}) {
+export function toyReducer(state = initialState, action = {}) {
     switch (action.type) {
         //* toys
         case SET_TOYS:
@@ -83,7 +86,11 @@ export function carReducer(state = initialState, action = {}) {
                 ...state,
                 toys: [...state.lastToys]
             }
-
+        case SET_LABELS:
+            return {
+                ...state,
+                labels: action.labels
+            }
 
         default:
             return state

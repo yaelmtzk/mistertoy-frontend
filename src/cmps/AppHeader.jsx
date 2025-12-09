@@ -1,6 +1,7 @@
 import { UserMsg } from './UserMsg.jsx'
 import { LoginSignup } from './LoginSignup.jsx'
-import { userService } from '../services/user.service.js'
+// import { userService } from '../services/user.service.js'
+import { userService } from "../services/user.service-local"
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 import { logout } from '../store/actions/user.actions.js'
 import { TOGGLE_CART_IS_SHOWN } from '../store/reducers/toy.reducer.js'
@@ -35,18 +36,18 @@ export function AppHeader() {
     return (
         <header className="app-header full main-layout">
             <section className="header-container">
-                <h1>React Toy App</h1>
+                <h1>Toys Store App</h1>
                 <nav className="app-nav">
                     <NavLink to="/" >Home</NavLink>
                     <NavLink to="/about" >About</NavLink>
                     <NavLink to="/toy" >Toys</NavLink>
-                    <a onClick={onToggleCart} href="#">🛒 Cart</a>
+                    <a onClick={onToggleCart} href="#"><i className="fa-solid fa-cart-shopping"></i> Cart</a>
 
                 </nav>
             </section>
             {user ? (
                 < section >
-                    <span to={`/user/${user._id}`}>Hello {user.fullname} <span>${user.score.toLocaleString()}</span></span>
+                    <span to={`/user/${user._id}`}>Hello {user.fullname} <span>${user.credits.toLocaleString()}</span></span>
                     <button onClick={onLogout}>Logout</button>
                 </ section >
             ) : (

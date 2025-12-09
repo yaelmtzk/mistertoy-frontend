@@ -8,7 +8,7 @@ export const utilService = {
     debounce
 }
 
-function makeId(length = 6) {
+function makeId(length = 4) {
     var txt = ''
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 
@@ -20,14 +20,24 @@ function makeId(length = 6) {
 }
 
 function makeLorem(size = 100) {
-    var words = ['The sky', 'above', 'the port', 'was', 'the color of television', 'tuned', 'to', 'a dead channel', '.', 'All', 'this happened', 'more or less', '.', 'I', 'had', 'the story', 'bit by bit', 'from various people', 'and', 'as generally', 'happens', 'in such cases', 'each time', 'it', 'was', 'a different story', '.', 'It', 'was', 'a pleasure', 'to', 'burn']
-    var txt = ''
+    const words = [
+        'The toy box', 'sparkled', 'with', 'bright colors', 'tiny wheels',
+        'soft plushies', 'stacking blocks', 'friendly robots', 'puzzle pieces',
+        'mini figures', 'storybook magic', 'giggles', 'surprises', 'little hands',
+        'wooden trains', 'playtime', 'swirls of imagination', 'colorful bricks',
+        'jumbo crayons', 'dollhouse dreams', 'outdoor fun', 'battery powered fun',
+        'adventure time', 'tiny treasures', 'cheerful sounds', 'building worlds',
+        'toy carts', 'spinning tops', 'creative play', 'happy moments'
+    ]
+
+    let txt = ''
     while (size > 0) {
         size--
         txt += words[Math.floor(Math.random() * words.length)] + ' '
     }
-    return txt
+    return txt.trim()
 }
+
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min)
@@ -62,12 +72,12 @@ function animateCSS(el, animation) {
     })
 }
 
-function debounce(func, timeout = 300) {
-    let timer
+function debounce(func, delay = 300) {
+    let timeoutId
     return (...args) => {
-        clearTimeout(timer)
-        timer = setTimeout(() => {
-            func.apply(this, args)
-        }, timeout)
+        clearTimeout(timeoutId)
+        timeoutId = setTimeout(() => {
+            func(...args)
+        }, delay)
     }
 }

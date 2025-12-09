@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
-import { toyService } from "../services/toy.service.js"
+// import { toyService } from "../services/toy.service.js"
+import { toyService } from "../services/toy.service-local"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { saveToy } from "../store/actions/toy.actions.js"
 import { Link, useNavigate, useParams } from "react-router-dom"
@@ -8,9 +9,9 @@ import { useOnlineStatus } from "../hooks/useOnlineStatus.js"
 import { useConfirmTabClose } from "../hooks/useConfirmTabClose.js"
 
 
-export function toyEdit() {
+export function ToyEdit() {
     const navigate = useNavigate()
-    const [toyToEdit, setToyToEdit] = useState(toyService.getEmptytoy())
+    const [toyToEdit, setToyToEdit] = useState(toyService.getEmptyToy())
     const { toyId } = useParams()
 
     const isOnline = useOnlineStatus()
@@ -38,7 +39,7 @@ export function toyEdit() {
 
     function onSaveToy(ev) {
         ev.preventDefault()
-        if (!toyToEdit.price) toyToEdit.price = 1000
+        if (!toyToEdit.price) toyToEdit.price = 100
         saveToy(toyToEdit)
             .then(() => {
                 showSuccessMsg('Toy Saved!')
@@ -51,18 +52,16 @@ export function toyEdit() {
     }
 
     return (
-        <>
-            <div></div>
             <section className="toy-edit">
-                <h2>{toyToEdit._id ? 'Edit' : 'Add'} toy</h2>
+                <h2>{toyToEdit._id ? 'Edit' : 'Add'} Toy</h2>
 
                 <form onSubmit={onSaveToy} >
-                    <label htmlFor="vendor">Vendor : </label>
+                    <label htmlFor="vendor">Toy Name : </label>
                     <input type="text"
-                        name="vendor"
-                        id="vendor"
-                        placeholder="Enter vendor..."
-                        value={toyToEdit.vendor}
+                        name="name"
+                        id="name"
+                        placeholder="Enter toy name..."
+                        value={toyToEdit.name}
                         onChange={handleChange}
                     />
                     <label htmlFor="price">Price : </label>
@@ -83,7 +82,6 @@ export function toyEdit() {
                     </section>
                 </form>
             </section>
-        </>
     )
 }
 

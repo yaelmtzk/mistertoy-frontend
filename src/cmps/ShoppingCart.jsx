@@ -3,7 +3,8 @@
 
 import { useDispatch, useSelector } from 'react-redux'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { userService } from '../services/user.service.js'
+// import { userService } from '../services/user.service.js'
+import { userService } from "../services/user.service-local"
 import { checkout } from '../store/actions/user.actions.js'
 import { REMOVE_TOY_FROM_CART } from '../store/reducers/toy.reducer.js'
 
@@ -45,7 +46,7 @@ export function ShoppingCart({ isCartShown }) {
                         <button onClick={() => {
                             removeFromCart(toy._id)
                         }}>x</button>
-                        {toy.vendor} | ${toy.price}
+                        {toy.name} | ${toy.price}
                     </li>)
                 }
             </ul>

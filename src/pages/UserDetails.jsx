@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import { userService } from "../services/user.service.js"
+// import { userService } from "../services/user.service.js"
+import { userService } from "../services/user.service-local"
 import { Link, useNavigate, useParams } from "react-router-dom"
 
 // const { useEffect, useState } = React
@@ -35,7 +36,7 @@ export function UserDetails() {
     return (
         <section className="user-details">
             <h1>Fullname: {user.fullname}</h1>
-            <h5>Score: {user.score}</h5>
+            <h5>Credits: {user.credits}</h5>
             {isMyProfile && (
                 <section>
                     <h2>My Stuff!</h2>

@@ -39,17 +39,20 @@ function save(toy) {
 
 function getEmptyToy() {
     return {
-        vendor: '',
+        _id: '',
+        name: '',
         price: '',
-        speed: '',
+        imgUrl: 'hardcoded-url-for-now',
+        inStock: true,
+        labels: [], 
+        createdAt: Date.now()
     }
 }
 
 function getRandomToy() {
     return {
-        vendor: 'Susita-' + (Date.now() % 1000),
-        price: utilService.getRandomIntInclusive(1000, 9000),
-        speed: utilService.getRandomIntInclusive(90, 200),
+        vendor: 'Puzzle' + (Date.now() % 1000),
+        price: utilService.getRandomIntInclusive(1000, 9000)
     }
 }
 

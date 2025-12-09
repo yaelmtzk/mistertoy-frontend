@@ -5,14 +5,15 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { ToyFilter } from '../cmps/ToyFilter.jsx'
 import { ToyList } from '../cmps/ToyList.jsx'
-import { toyService } from '../services/toy.service.js'
+// import { toyService } from '../services/toy.service.js'
+import { toyService } from "../services/toy.service-local"
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { loadToys, removeToy, removeToyOptimistic, saveToy, setFilterBy } from '../store/actions/toy.actions.js'
 import { ADD_TOY_TO_CART } from '../store/reducers/toy.reducer.js'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-export function toyIndex() {
+export function ToyIndex() {
 
     const dispatch = useDispatch()
     const toys = useSelector(storeState => storeState.toyModule.toys)
@@ -21,7 +22,7 @@ export function toyIndex() {
 
     useEffect(() => {
         loadToys()
-            .catch(err => {
+            .catch(() => {
                 showErrorMsg('Cannot load toys!')
             })
     }, [filterBy])
@@ -40,8 +41,8 @@ export function toyIndex() {
             })
     }
 
-    function onAddtoy() {
-        const toyToSave = toyService.getRandomtoy()
+    function onAddToy() {
+        const toyToSave = toyService.getRandomToy()
         saveToy(toyToSave)
             .then((savedToy) => {
                 showSuccessMsg(`toy added (id: ${savedToy._id})`)
@@ -65,17 +66,20 @@ export function toyIndex() {
     }
 
     function addToCart(toy) {
-        console.log(`Adding ${toy.vendor} to cart`)
+        console.log(`Adding ${toy.name} to cart`)
         dispatch({ type: ADD_TOY_TO_CART, toy })
         showSuccessMsg('Added to cart')
     }
 
     return (
         <div>
-            <h3>toys App</h3>
+            <h3>Toy Store App</h3>
             <main>
-                <Link to="/toy/edit">Add toy</Link>
-                <button className='add-btn' onClick={onAddtoy}>Add Random toy ⛐</button>
+                <Link to="/toy/edit">Add Toy</Link>
+                <button className='add-btn'
+                    onClick={onAddToy}>Add Random Toy
+                    <i className="fa-solid fa-puzzle-piece"></i>
+                </button>
                 <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
                 {!isLoading
                     ? <ToyList

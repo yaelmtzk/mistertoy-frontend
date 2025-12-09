@@ -1,6 +1,7 @@
-import { userService } from "../../services/user.service.js"
+// import { userService } from "../../services/user.service.js"
+import { userService } from "../../services/user.service-local.js"
 import { CLEAR_CART } from "../reducers/toy.reducer.js"
-import { SET_USER, SET_USER_SCORE } from "../reducers/user.reducer.js"
+import { SET_USER,  SET_USER_CREDITS } from "../reducers/user.reducer.js"
 import { store } from "../store.js"
 
 export function login(credentials) {
@@ -38,10 +39,10 @@ export function logout(credentials) {
 }
 
 export function checkout(diff) {
-    return userService.updateScore(-diff)
-        .then((newScore) => {
+    return userService.updateCredits(-diff)
+        .then((newCredits) => {
             store.dispatch({ type: CLEAR_CART })
-            store.dispatch({ type: SET_USER_SCORE, score: newScore })
+            store.dispatch({ type: SET_USER_CREDITS, credits: newCredits })
         })
         .catch((err) => {
             console.log('user actions -> Cannot checkout', err)

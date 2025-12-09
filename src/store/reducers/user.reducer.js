@@ -8,7 +8,7 @@ export const CHANGE_BY = 'CHANGE_BY'
 
 //* User
 export const SET_USER = 'SET_USER'
-export const SET_USER_SCORE = 'SET_USER_SCORE'
+export const SET_USER_CREDITS = 'SET_USER_CREDITS'
 
 
 const initialState = {
@@ -33,8 +33,8 @@ export function userReducer(state = initialState, action = {}) {
                 ...state,
                 loggedInUser: action.user
             }
-        case SET_USER_SCORE:
-            const loggedInUser = { ...state.loggedInUser, score: action.score }
+        case SET_USER_CREDITS:
+            const loggedInUser = { ...state.loggedInUser, credits: action.credits }
             return { ...state, loggedInUser }
         default:
             return state;
