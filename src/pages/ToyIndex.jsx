@@ -20,7 +20,7 @@ export function ToyIndex() {
     const filterBy = useSelector(storeState => storeState.toyModule.filterBy)
     const isLoading = useSelector(storeState => storeState.toyModule.isLoading)
 
-    useEffect(() => {
+    useEffect(() => {        
         loadToys()
             .catch(() => {
                 showErrorMsg('Cannot load toys!')

@@ -202,8 +202,9 @@ export const toyService = {
 }
 
 function query(filterBy = {}) {
-  let { txt, maxPrice, labels, sortBy } = filterBy
-
+  let { txt, maxPrice, labels, sortBy, stock } = filterBy
+  console.log('query');
+  
   return storageService.query(STORAGE_KEY)
     .then(toys => {
 
@@ -212,11 +213,10 @@ function query(filterBy = {}) {
         toys = toys.filter((toy) => regex.test(toy.name))
       }
 
-      if (!maxPrice) {
-        maxPrice = 10000
+      if (maxPrice) {
+        toys = toys.filter((toy) => toy.price <= maxPrice)
       }
-      toys = toys.filter((toy) => toy.price <= maxPrice)
-
+      
       if (labels) {
         const labelToFilter = labels
         toys = toys.filter((toy) =>
@@ -239,6 +239,12 @@ function query(filterBy = {}) {
         // if (sortDir === -1) filtered.reverse()
       }
 
+      if(stock) {
+        console.log(stock);
+        if (stock === 'true') toys = toys.filter((toy) => toy.inStock === true)
+        if (stock === 'false') toys = toys.filter((toy) => toy.inStock === false)
+      }
+
       return Promise.resolve(toys)
     })
 }
@@ -259,8 +265,8 @@ function save(toy) {
     // when switching to backend - remove the next line
     // toy.owner = userService.getLoggedinUser()
     toy._id = utilService.makeId()
-    const labels = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle',
-      'Outdoor', 'Battery Powered']
+    const labels = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 
+      'Puzzle', 'Outdoor', 'Battery Powered']
     toy.labels = _getRandLabels(toy.name, labels)
 
     return storageService.post(STORAGE_KEY, toy)
@@ -292,7 +298,7 @@ function getRandomToy() {
 }
 
 function getDefaultFilter() {
-  return { txt: '', maxPrice: '', labels: '', sortBy: '' }
+  return { txt: '', maxPrice: '', labels: '', sortBy: '', stock: '' }
 }
 
 function getLabels(toys) {
@@ -303,7 +309,7 @@ function getLabels(toys) {
         toy.labels : []))]
 }
 
-//////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
 
 function _createToys() {
   let toys = utilService.loadFromStorage(STORAGE_KEY)

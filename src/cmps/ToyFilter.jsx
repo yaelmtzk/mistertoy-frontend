@@ -15,18 +15,19 @@ export function ToyFilter({ filterBy, onSetFilter }) {
     const labels = useSelector(storeState => storeState.toyModule.labels)
 
     useEffect(() => {
-       debouncedOnSetFilter.current(filterByToEdit)
+        debouncedOnSetFilter.current(filterByToEdit)
     }, [filterByToEdit])
 
     function handleChange({ target }) {
         let { value, name: field, type } = target
         value = type === 'number' ? +value : value
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
+        
     }
 
     function onLabelChange(selectedLabels) {
-		setFilterByToEdit((prevFilter) => ({ ...prevFilter, labels: selectedLabels }))
-	}
+        setFilterByToEdit((prevFilter) => ({ ...prevFilter, labels: selectedLabels }))
+    }
 
     return (
         <section className="toy-filter full main-layout">
@@ -53,7 +54,21 @@ export function ToyFilter({ filterBy, onSetFilter }) {
 
             <LabelSelector labels={labels} onLabelChange={onLabelChange} />
 
-            <ToySort filterBy={filterBy} onSetFilter={onSetFilter}/>
+            <ToySort filterBy={filterByToEdit} onSetFilter={setFilterByToEdit} />
+
+            <div className="stock-filter-container">
+                <label htmlFor="stock">Stock:
+                    <select 
+                        name="stock"
+                        value={filterByToEdit.stock}
+                        onChange={handleChange}
+                        id="stock">
+                        <option value="">All</option>
+                        <option value="true">In Stock</option>
+                        <option value="false">Out of Stock</option>
+                    </select>
+                </label>
+            </div>
         </section>
     )
 }
