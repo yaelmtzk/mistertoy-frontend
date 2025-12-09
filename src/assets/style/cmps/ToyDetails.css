@@ -1,0 +1,26 @@
+.toy-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.toy-details h1 {
+    margin-block: .5em;
+    font-size: 1.5rem;
+}
+
+.toy-details p {
+    font-size: 1.2rem;
+}
+
+.toy-details span {
+    font-weight: initial;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}

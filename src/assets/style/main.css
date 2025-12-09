@@ -10,6 +10,7 @@
 
 /* Components */
 @import 'cmps/ToyIndex.css';
+@import 'cmps/ToyDetails.css';
 @import 'cmps/AppHeader.css';
 @import 'cmps/AppFooter.css';
 @import 'cmps/ToggleBtn.css';
@@ -21,6 +22,9 @@
 @import 'cmps/ToyEdit.css';
 
 @import 'cmps/ShoppingCart.css';
+
+@import 'cmps/Popup.css';
+@import 'cmps/Chat.css';
 
 
 .app {

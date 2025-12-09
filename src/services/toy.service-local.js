@@ -203,7 +203,6 @@ export const toyService = {
 
 function query(filterBy = {}) {
   let { txt, maxPrice, labels, sortBy, stock } = filterBy
-  console.log('query');
   
   return storageService.query(STORAGE_KEY)
     .then(toys => {
