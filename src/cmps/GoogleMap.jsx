@@ -1,4 +1,4 @@
-const API_KEY = 'AIzaSyDN14tyfDn2jjnbEbs8mAQsdfe_wU2to40'
+const API_KEY = ''
 
 import { useRef, useState } from "react"
 import {
