@@ -15,9 +15,7 @@ export const toyService = {
   getLabels
 }
 
-function query(filterBy = {}) {
-  console.log(filterBy);
-  
+function query(filterBy = {}) {  
   return httpService.get(BASE_URL, filterBy)
 }
 
