@@ -41,7 +41,7 @@ export function BarChart({ labels, toys }) {
     }
 
     return (
-        <section>
+        <section className="bar-chart chart">
             <h2>Average prices per label</h2>
             <Bar options={options} data={data} />
         </section>

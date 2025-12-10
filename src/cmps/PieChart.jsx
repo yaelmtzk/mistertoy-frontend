@@ -1,8 +1,8 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, RadialLinearScale } from 'chart.js';
 import { Doughnut, PolarArea } from 'react-chartjs-2';
-ChartJS.register(RadialLinearScale,ArcElement, Tooltip, Legend);
+ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
-export function PieChart({labels, toys}) {
+export function PieChart({ labels, toys }) {
 
     const data = {
         labels: labels,
@@ -10,9 +10,9 @@ export function PieChart({labels, toys}) {
         datasets: [
             {
                 label: 'Amount:',
-                data: labels.map(lbl => 
-                  toys.reduce((acc, toy) => 
-                    acc + (toy.labels.includes(lbl) && toy.inStock? 1 : 0), 0)
+                data: labels.map(lbl =>
+                    toys.reduce((acc, toy) =>
+                        acc + (toy.labels.includes(lbl) && toy.inStock ? 1 : 0), 0)
                 ),
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -34,14 +34,11 @@ export function PieChart({labels, toys}) {
             },
         ],
     }
-    
+
     return (
-        <section className="my-chart">
-            
-            <section className="chart-container">              
-              <h2>Inventory by label</h2>
-              <Doughnut data={data} />
-            </section>
+        <section className="pie-chart chart">
+            <h2>Inventory by label</h2>
+            <Doughnut data={data} />
         </section>
     )
 

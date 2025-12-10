@@ -11,6 +11,7 @@
 /* Components */
 @import 'cmps/ToyIndex.css';
 @import 'cmps/ToyDetails.css';
+@import 'cmps/Dashboard.css';
 @import 'cmps/AppHeader.css';
 @import 'cmps/AppFooter.css';
 @import 'cmps/ToggleBtn.css';

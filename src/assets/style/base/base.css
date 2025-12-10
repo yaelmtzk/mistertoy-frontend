@@ -47,3 +47,7 @@ object {
 a.active {
   text-decoration: underline;
 }
+
+.select-small{
+  background-color: white;
+}

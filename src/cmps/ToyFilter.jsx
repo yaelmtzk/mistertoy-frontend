@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { utilService } from "../services/util.service.js"
 import { LabelSelector } from './LabelSelect.jsx'
 import { ToySort } from './ToySort.jsx'
+import { SelectSmall } from './Select.jsx'
 
 
 export function ToyFilter({ filterBy, onSetFilter }) {
@@ -22,11 +23,15 @@ export function ToyFilter({ filterBy, onSetFilter }) {
         let { value, name: field, type } = target
         value = type === 'number' ? +value : value
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
-        
+
     }
 
-    function onLabelChange(selectedLabels) {
-        setFilterByToEdit((prevFilter) => ({ ...prevFilter, labels: selectedLabels }))
+    function onLabelChange(selected) {
+        setFilterByToEdit((prevFilter) => ({ ...prevFilter, labels: selected }))
+    }
+
+    function onStockChange(selected) {
+        setFilterByToEdit((prevFilter) => ({ ...prevFilter, stock: selected }))
     }
 
     return (
@@ -54,21 +59,13 @@ export function ToyFilter({ filterBy, onSetFilter }) {
 
             <LabelSelector labels={labels} onLabelChange={onLabelChange} />
 
-            <ToySort filterBy={filterByToEdit} onSetFilter={setFilterByToEdit} />
+            <ToySort onSetFilter={setFilterByToEdit} />
 
-            <div className="stock-filter-container">
-                <label htmlFor="stock">Stock:
-                    <select 
-                        name="stock"
-                        value={filterByToEdit.stock}
-                        onChange={handleChange}
-                        id="stock">
-                        <option value="">All</option>
-                        <option value="true">In Stock</option>
-                        <option value="false">Out of Stock</option>
-                    </select>
-                </label>
-            </div>
+            <SelectSmall
+                inputLbl={'stock'}
+                options={{ true: 'In Stock', false: 'Out of Stock' }}
+                onChange={onStockChange} />
+
         </section>
     )
 }

@@ -56,7 +56,7 @@ export function LineChart({ toys }) {
     }
 
     return (
-        <section>
+        <section className="line-chart chart">
             <h2>Toys added by date</h2>
             <Line options={options} data={data} />
         </section>

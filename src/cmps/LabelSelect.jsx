@@ -1,26 +1,13 @@
-import { useEffect, useState } from "react"
+import {SelectSmall} from './Select.jsx'
 
 export function LabelSelector({ labels, onLabelChange }) {
 
-  const [selectedLabel, setSelectedLabel] = useState('')
-
-  useEffect(() => {
-    onLabelChange(selectedLabel)
-  }, [selectedLabel])
-
-  function handleLabelChange(ev) {
-    const newLbl = ev.target.value
-    setSelectedLabel(newLbl)
-  }
+  const formattedLbls =  Object.fromEntries(labels.map(lbl => [lbl, lbl]))
 
   return (
-    <label>Label
-      <select value={selectedLabel} onChange={(ev) => handleLabelChange(ev)}
-        id="toy-labels">
-        <option value="" >Select</option>
-        {labels.map(label =>
-          <option key={label} value={label}>{label}</option>)}
-      </select>
-    </label>
+      <SelectSmall 
+      inputLbl={'labels'} 
+      options={formattedLbls}
+      onChange={onLabelChange}/>
   )
 }
