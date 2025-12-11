@@ -3,8 +3,10 @@ import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
+import { useTranslation } from "react-i18next"
 
 export function SelectSmall({ inputLbl, options, onChange }) {
+    const { t, i18n } = useTranslation()
     const [selectedOpt, setSelectedOpt] = useState('')
 
     useEffect(() => {
@@ -32,7 +34,7 @@ export function SelectSmall({ inputLbl, options, onChange }) {
             >
                 <MenuItem
                     value="">
-                    <em></em>
+                    <em>{t("select.none", "None")}</em>
                 </MenuItem>
                 {Object.entries(options).map(([key, value]) =>
                     <MenuItem

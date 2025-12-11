@@ -1,6 +1,8 @@
 import { SelectSmall } from './Select.jsx'
+import { useTranslation } from "react-i18next"
 
 export function ToySort({ onSetFilter }) {
+    const { t, i18n } = useTranslation()
 
     function handleChange(value) {
         onSetFilter(prev => ({ ...prev, sortBy: value }))
@@ -10,7 +12,7 @@ export function ToySort({ onSetFilter }) {
 
     return (
         <SelectSmall
-            inputLbl={'sort'}
+            inputLbl={t("toySort.sort", "Sort")}
             options={options}
             onChange={handleChange} />
     )

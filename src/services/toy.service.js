@@ -15,7 +15,7 @@ export const toyService = {
   getLabels
 }
 
-function query(filterBy = {}) {  
+function query(filterBy = {}) {
   return httpService.get(BASE_URL, filterBy)
 }
 
@@ -74,7 +74,15 @@ function _getRandToyName() {
 }
 
 function getDefaultFilter() {
-  return { txt: '', maxPrice: '', labels: [], sortBy: '', stock: '', pageIdx: '' }
+  return {
+    txt: '',
+    maxPrice: '',
+    labels: [],
+    sortBy: '',
+    stock: '',
+    pageIdx: '',
+    user: ''
+  }
 }
 
 function getLabels(toys) {

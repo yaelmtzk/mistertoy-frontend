@@ -1,0 +1,178 @@
+{
+  "app": {
+    "title": "חנות צעצועים",
+    "home": "בית",
+    "about": "אודות",
+    "toys": "צעצועים",
+    "dashboard": "לוח בקרה",
+    "cart": "עגלה",
+    "logout": "התנתק",
+    "login": "התחבר",
+    "signup": "הירשם",
+    "hello_user": "שלום",
+    "credits": "קרדיטים:"
+  },
+
+  "about": {
+    "title": "אודותינו",
+    "text": "לורם איפסום דולור סיט אמט קונסקטורר אדיפיסינג אלית...",
+    "branches": "הסניפים שלנו"
+  },
+
+  "dashboard": {
+    "title": "סטטיסטיקות חנות צעצועים",
+    "bar_chart_title": "מחיר ממוצע לפי תגית",
+    "pie_chart_title": "מלאי לפי תגית",
+    "line_chart_title": "צעצועים שנוספו לפי תאריך",
+    "amount": "כמות",
+    "average": "ממוצה"
+  },
+
+  "home": {
+    "count": "מונה: "
+  },
+
+  "toyDetails": {
+    "loading": "טוען...",
+    "toy": "צעצוע: ",
+    "price": "מחיר: ",
+    "labels": "תגיות:",
+    "in_stock": "במלאי",
+    "out_of_stock": "לא במלאי",
+    "edit": "עריכה",
+    "back": "חזרה",
+    "chat": "צ'אט",
+    "chat_heading": "בואו נדבר!",
+    "close": "סגור"
+  },
+
+  "toyEdit": {
+    "title_add": "הוסף צעצוע",
+    "title_edit": "עריכת צעצוע",
+    "name_label": "שם צעצוע:",
+    "price_label": "מחיר:",
+    "name_placeholder": "הכנס שם צעצוע...",
+    "price_placeholder": "הכנס מחיר...",
+    "save": "שמור",
+    "add": "הוסף",
+    "cancel": "ביטול",
+    "online": "מחובר",
+    "offline": "מנותק",
+    "saved_success": "הצעצוע נשמר!",
+    "save_error": "אירעה שגיאה בשמירת הצעצוע"
+  },
+
+  "toyIndex": {
+    "title": "אפליקציית חנות צעצועים",
+    "add_toy": "הוסף צעצוע",
+    "add_random": "הוסף צעצוע אקראי",
+    "loading": "טוען...",
+    "remove_success": "הצעצוע הוסר",
+    "remove_error": "לא ניתן להסיר צעצוע",
+    "add_success": "הצעצוע נוסף",
+    "add_error": "לא ניתן להוסיף צעצוע",
+    "update_success": "עודכן למחיר ",
+    "update_error": "לא ניתן לעדכן צעצוע"
+  },
+
+  "toyFilter": {
+    "title": "סינון צעצועים",
+    "name": "שם",
+    "name_placeholder": "לפי שם",
+    "max_price": "מחיר מקסימלי",
+    "max_price_placeholder": "לפי מחיר",
+    "stock": "לפי מלאי",
+    "stock_true": "במלאי",
+    "stock_false": "לא במלאי",
+    "labels": "תגיות"
+  },
+
+  "toySort": {
+    "sort": "מיון",
+    "txt": "טקסט",
+    "price": "מחיר",
+    "created": "תאריך יצירה"
+  },
+
+  "toyList": {
+    "edit": "עריכה",
+    "details": "פרטים",
+    "remove": "מחק",
+    "add_to_cart": "הוסף לעגלה"
+  },
+
+  "toyPreview": {
+    "price": "מחיר:",
+    "creator": "יוצר:"
+  },
+
+  "userDetails": {
+    "fullname": "שם מלא: ",
+    "credits": "קרדיטים: ",
+    "my_stuff": "הדברים שלי",
+    "loading": "טוען...",
+    "home": "בית"
+  },
+
+  "header": {
+    "cart_show": "הצג",
+    "cart_hide": "הסתר",
+    "products_in_cart": "מוצרים בעגלה"
+  },
+
+  "footer": {
+    "toys_count": " צעצועים בחנות",
+    "count": "מונה: ",
+    "products_in_cart": " מוצרים בעגלה",
+    "show": "הצג",
+    "hide": "הסתר",
+    "at_the_moment": "כרגע"
+  },
+
+  "cart": {
+    "your_cart": "העגלה שלך",
+    "total": "סך הכל: ",
+    "checkout": "לתשלום",
+    "checkout_success": "חויבת בסך ",
+    "checkout_error": "אירעה תקלה בתשלום",
+    "remove": "הסר"
+  },
+
+  "chat": {
+    "placeholder": "הקלד הודעה...",
+    "send": "שלח",
+    "bot_reply": "בוט: בטח, אין בעיה"
+  },
+
+  "popup": {
+    "close": "סגור"
+  },
+
+  "loginForm": {
+    "username": "שם משתמש",
+    "password": "סיסמה",
+    "fullname": "שם מלא",
+    "login": "התחבר",
+    "signup": "הירשם"
+  },
+
+  "loginSignup": {
+    "already_member": "כבר רשום? התחבר",
+    "new_user": "משתמש חדש? הירשם כאן",
+    "login_success": "התחברת בהצלחה",
+    "signup_success": "נרשמת בהצלחה",
+    "error": "אופס, נסה שוב"
+  },
+
+  "select": {
+    "none": "ללא"
+  },
+
+  "messages": {
+    "error": "שגיאה",
+    "success": "הצלחה",
+    "toy_saved": "הצעצוע נשמר!",
+    "toy_removed": "הצעצוע הוסר",
+    "cannot_load": "לא ניתן לטעון צעצועים"
+  }
+}

@@ -1,5 +1,5 @@
-const API_KEY = ''
-
+const API_KEY = import.meta.env.VITE_MY_API_KEY
+import { useTranslation } from "react-i18next"
 import { useRef, useState } from "react"
 import {
     AdvancedMarker,
@@ -22,6 +22,7 @@ function ClickableMarker({ position, onClick }) {
 }
 
 export function GoogleMap() {
+    const { t, i18n } = useTranslation()
     const [coords, setCoords] = useState({ lat: 32.0853, lng: 34.7818 })
     const [isOpen, setIsOpen] = useState(false)
     const [activeMarker, setActiveMarker] = useState(null)

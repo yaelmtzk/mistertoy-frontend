@@ -1,12 +1,18 @@
-import {GoogleMap} from '../cmps/GoogleMap'
+import { GoogleMap } from "../cmps/GoogleMap";
+import { useTranslation } from "react-i18next";
 
 export function AboutUs() {
-    return (
-        <section>
-            <h2>About Us</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni aperiam quo veniam velit dolor reprehenderit, laudantium consequatur neque numquam labore quae. Accusamus libero perferendis ducimus? Alias unde hic quisquam doloremque.</p>
-            <h3>Our Branches</h3>
-            <GoogleMap />
-        </section>
-    )
+  const { t } = useTranslation();
+
+  return (
+    <section>
+      <h2>{t("about.title", "About Us")}</h2>
+
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni aperiam quo veniam velit dolor reprehenderit.</p>
+
+      <h3>{t("about.branches", "Our Branches")}</h3>
+
+      <GoogleMap />
+    </section>
+  )
 }

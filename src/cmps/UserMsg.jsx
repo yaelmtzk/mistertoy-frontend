@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react"
 import { eventBusService } from "../services/event-bus.service.js"
-// const { useState, useEffect, useRef } = React
+import { useTranslation } from "react-i18next"
 
 export function UserMsg() {
-
+    const { t, i18n } = useTranslation()
     const [msg, setMsg] = useState(null)
     const timeoutIdRef = useRef()
 
