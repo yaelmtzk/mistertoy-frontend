@@ -9,10 +9,11 @@ export const CHANGE_BY = 'CHANGE_BY'
 //* User
 export const SET_USER = 'SET_USER'
 export const SET_USER_CREDITS = 'SET_USER_CREDITS'
+export const TOGGLE_USER_IS_SHOWN = 'TOGGLE_USER_IS_SHOWN'
 
 
 const initialState = {
-    count: 105,
+    isUserShown: false,
     loggedInUser: userService.getLoggedinUser()
 }
 
@@ -36,6 +37,10 @@ export function userReducer(state = initialState, action = {}) {
         case SET_USER_CREDITS:
             const loggedInUser = { ...state.loggedInUser, credits: action.credits }
             return { ...state, loggedInUser }
+
+        case TOGGLE_USER_IS_SHOWN:
+            return { ...state, isUserShown: !state.isUserShown }
+
         default:
             return state;
     }

@@ -12,28 +12,33 @@ export function ToyList({ toys, onRemoveToy, addToCart }) {
 
           <ToyPreview toy={toy} />
 
-          <div>
-            <button onClick={() => onRemoveToy(toy._id)}>
-              {t("toyList.remove", "Remove")}
+          <div className="preview-btns">
+            <button title={t("toyList.remove", "Remove")}
+              onClick={() => onRemoveToy(toy._id)}
+              >
+              <i className="fa-solid fa-trash pulse-hover"></i>
             </button>
 
-            <button>
+            <button title={t("toyList.edit", "Edit")}>
               <Link to={`/toy/edit/${toy._id}`}>
-                {t("toyList.edit", "Edit")}
+                <i className="fa-solid fa-pen-to-square pulse-hover"></i>
               </Link>
             </button>
 
-            <button>
+            <button title={t("toyList.details", "Details")}>
               <Link to={`/toy/${toy._id}`}>
-                {t("toyList.details", "Details")}
+                <i className="fa-solid fa-info pulse-hover"></i>
               </Link>
             </button>
+
+            <button
+              title={t("toyList.add_to_cart", "Add to cart")}
+              className="buy"
+              onClick={() => addToCart(toy)}>
+              <i className="fa-solid fa-cart-plus pulse-hover"></i>
+            </button>
+
           </div>
-
-          <button className="buy" onClick={() => addToCart(toy)}>
-            {t("toyList.add_to_cart", "Add to cart")}
-          </button>
-
         </li>
       )}
     </ul>

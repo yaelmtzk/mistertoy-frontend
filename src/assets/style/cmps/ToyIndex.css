@@ -1,3 +1,13 @@
+.index-section{
+    button{
+        background-color: var(--gray2);
+        &:hover{
+            background-color: var(--gray3);
+            color: var(--gray2);
+        }
+    }
+}
+
 .add-btn {
     margin: 0.6em ;
 }

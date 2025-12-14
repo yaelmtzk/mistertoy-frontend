@@ -27,7 +27,7 @@ export default function App() {
     return (
         <Provider store={store}>
             <Router>
-                <section className="app">
+                <section className="app main-layout">
                     <AppHeader />
                     <main className='main-layout'>
                         <Routes>

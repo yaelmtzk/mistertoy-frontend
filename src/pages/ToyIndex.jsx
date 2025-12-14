@@ -72,20 +72,17 @@ export function ToyIndex() {
   }
 
   return (
-    <div>
-      <h3>{t('toyIndex.title', 'Toy Store App')}</h3>
-      <main>
-        <Link to="/toy/edit">
+      <section className="index-section">
+        <button>
+          <Link to="/toy/edit">
           {t('toyIndex.add_toy', 'Add Toy')}
         </Link>
+        </button>
 
         <button
           className='add-btn'
           onClick={onAddToy}
-        >
-          {t('toyIndex.add_random', 'Add Random Toy')}
-          <i className="fa-solid fa-puzzle-piece"></i>
-        </button>
+        >{t('toyIndex.add_random', 'Add Random Toy')}</button>
 
         <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
 
@@ -102,7 +99,6 @@ export function ToyIndex() {
         }
 
         <hr />
-      </main>
-    </div>
+      </section>
   )
 }

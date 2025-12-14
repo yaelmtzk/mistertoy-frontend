@@ -1,0 +1,8 @@
+.about-us{
+    display: grid;
+    margin-bottom: 1rem;
+    .map{
+        place-self: center;
+    }
+
+}

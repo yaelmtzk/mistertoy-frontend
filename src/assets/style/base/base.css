@@ -2,12 +2,11 @@
   box-sizing: border-box;
 }
 
-html {
-}
-
 body {
   margin: 0;
   color: var(--gray3);
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 1rem;
 }
 
 h1,
@@ -16,20 +15,13 @@ h3,
 h4,
 h5,
 h6 {
-  margin: .5em 0 .5em;
   font-family: 'Edu VIC WA NT Beginner', cursive;
-}
-
-p {
-  margin: 0 0 1em;
 }
 
 a {
   text-decoration: none;
   color: unset;
 }
-
-
 
 /* Dont stretch my Media */
 img,
@@ -44,10 +36,14 @@ object {
   outline: 1px solid gold
 }
 
-a.active {
-  text-decoration: underline;
-}
+button {
+    cursor: pointer;
+    padding: 0.5em 0.5em;
+    border: none;
+    border-radius: 4px;
 
-.select-small{
-  background-color: white;
+    &:hover {
+        transition: .3s;
+    }
+
 }

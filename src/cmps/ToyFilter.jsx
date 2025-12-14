@@ -32,43 +32,48 @@ export function ToyFilter({ filterBy, onSetFilter }) {
   }
 
   return (
-    <section className="toy-filter full main-layout">
+    <section className="toy-filter">
       <h2>{t("toyFilter.title", "Toys Filter")}</h2>
 
-      <form>
-        <label htmlFor="vendor">{t("toyFilter.name", "Name:")}</label>
-        <input
-          type="text"
-          id="vendor"
-          name="txt"
-          placeholder={t("toyFilter.name_placeholder", "By name")}
-          value={filterByToEdit.txt}
-          onChange={handleChange}
+      <div className="filters-container">
+        <form>
+          <label htmlFor="name">{t("toyFilter.name", "Name")}</label>
+          <input
+            type="text"
+            id="name"
+            name="txt"
+            placeholder={t("toyFilter.name_placeholder", "By name")}
+            value={filterByToEdit.txt}
+            onChange={handleChange}
+          />
+        </form>
+
+        <form>
+          <label htmlFor="maxPrice">{t("toyFilter.max_price", "Max price")}</label>
+          <input
+            type="number"
+            id="maxPrice"
+            name="maxPrice"
+            placeholder={t("toyFilter.max_price_placeholder", "By max price")}
+            value={filterByToEdit.maxPrice || ''}
+            onChange={handleChange}
+          />
+        </form>
+
+        <LabelSelector labels={labels} onLabelChange={onLabelChange} />
+
+        <ToySort onSetFilter={setFilterByToEdit} />
+
+        <SelectSmall
+          inputLbl={t("toyFilter.stock", "stock")}
+          options={{
+            true: t("toyFilter.stock_true", "In Stock"),
+            false: t("toyFilter.stock_false", "Out of Stock")
+          }}
+          onChange={onStockChange}
         />
+      </div>
 
-        <label htmlFor="maxPrice">{t("toyFilter.max_price", "Max price:")}</label>
-        <input
-          type="number"
-          id="maxPrice"
-          name="maxPrice"
-          placeholder={t("toyFilter.max_price_placeholder", "By max price")}
-          value={filterByToEdit.maxPrice || ''}
-          onChange={handleChange}
-        />
-      </form>
-
-      <LabelSelector labels={labels} onLabelChange={onLabelChange} />
-
-      <ToySort onSetFilter={setFilterByToEdit} />
-
-      <SelectSmall
-        inputLbl= {t("toyFilter.stock", "stock")}
-        options={{
-          true: t("toyFilter.stock_true", "In Stock"),
-          false: t("toyFilter.stock_false", "Out of Stock")
-        }}
-        onChange={onStockChange}
-      />
     </section>
   )
 }

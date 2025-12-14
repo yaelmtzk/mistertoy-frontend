@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { checkout } from '../store/actions/user.actions.js'
 import { REMOVE_TOY_FROM_CART } from '../store/reducers/toy.reducer.js'
+import { TOGGLE_CART_IS_SHOWN } from '../store/reducers/toy.reducer.js'
 import { useTranslation } from "react-i18next"
 
 export function ShoppingCart({ isCartShown }) {
@@ -37,6 +38,16 @@ export function ShoppingCart({ isCartShown }) {
 
   return (
     <section className="cart">
+
+      <button
+        className='close-cart'
+        onClick={(ev) => {
+          ev.preventDefault()
+          dispatch({ type: TOGGLE_CART_IS_SHOWN })
+        }}>
+        X
+      </button>
+
       <h5>{t("cart.your_cart", "Your Cart")}</h5>
 
       <ul>

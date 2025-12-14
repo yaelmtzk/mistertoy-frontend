@@ -25,7 +25,7 @@ export function LoginSignup() {
   }
 
   return (
-    <div className="login-page">
+    <div className="login-container">
       <LoginForm onLogin={onLogin} isSignup={isSignup} />
 
       <div className="btns">

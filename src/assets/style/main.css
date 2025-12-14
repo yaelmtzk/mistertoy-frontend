@@ -7,10 +7,13 @@
 @import 'base/helpers.css';
 @import 'base/layout.css';
 @import 'base/forms.css';
+@import 'base/animations.css';
 
 /* Components */
 @import 'cmps/ToyIndex.css';
 @import 'cmps/ToyDetails.css';
+@import 'cmps/HomePage.css';
+@import 'cmps/AboutUs.css';
 @import 'cmps/Dashboard.css';
 @import 'cmps/AppHeader.css';
 @import 'cmps/AppFooter.css';
@@ -26,18 +29,3 @@
 
 @import 'cmps/Popup.css';
 @import 'cmps/Chat.css';
-
-
-.app {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.app > * {
-    width: 100%;
-}
-
-main {
-    flex-grow: 1;
-}

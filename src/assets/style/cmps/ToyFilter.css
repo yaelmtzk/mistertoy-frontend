@@ -1,4 +1,78 @@
 .toy-filter {
-    background-color: var(--clr2bg);
+    display: grid;
+    background-color: var(--clr1);
+    color: var(--gray2);
     padding: 1em;
+
+    .filters-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 15px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        max-width: 300px;
+        gap: 5px;
+    }
+}
+
+label {
+    position: absolute;
+    top: -12px;
+    left: 0;
+    font-size: small;
+    text-shadow: 0 0 10px var(--gray3);
+}
+
+select,
+input {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+
+    width: 100%;
+    padding: 6px 10px;
+    font-size: 0.9rem;
+
+    background-color: white;
+    color: #333;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    transition: 0.2s ease-in-out;
+}
+
+select {
+    cursor: pointer;
+}
+
+select:hover,
+input:hover {
+    background-color: #efeff3;
+    border-color: #999;
+}
+
+select:focus,
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.25);
+}
+
+.select-wrapper::after {
+    content: "▼";
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 0.6rem;
+    color: #666;
+    pointer-events: none;
+}
+
+option {
+    padding: 10px;
+    font-size: 0.9rem;
 }

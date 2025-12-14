@@ -1,14 +1,20 @@
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom"
+import { useTranslation } from "react-i18next"
+import { getToyImage } from '../services/image.service.js'
 
 export function ToyPreview({ toy }) {
   const { t } = useTranslation()
 
   return (
     <article>
-      <h4>{toy.name}</h4>
+      <h3>{toy.name}</h3>
 
-      <h1><i className="fa-solid fa-puzzle-piece"></i></h1>
+      <div className="img-container">
+        <img
+          src={getToyImage(toy.imgUrl)}
+          alt={toy.name}
+        />
+      </div>
 
       <p>
         {t("toyPreview.price", "Price:")}{" "}

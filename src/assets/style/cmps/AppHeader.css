@@ -1,10 +1,158 @@
 .app-header {
-    background-color: var(--clr1);
-    color: var(--clr1bg);
-    padding-block: 1em;
+    background-color: var(--gray3);
+    color: var(--clr2bg-light);
 }
 
-.app-nav {
+.header-container {
+    >* {
+        place-items: center;
+        justify-content: space-between;
+        padding: 10px 5px 10px 0;
+    }
+
+    h1 {
+        margin: 0;
+    }
+
+    a {
+        cursor: pointer;
+    }
+}
+
+.nav-container {
+    grid-column: 1 / -1;
+    background-color: var(--clr2);
+    color: var(--gray3);
+    height: 40px;
+    padding: 0;
+    display: grid;
+
+    .active {
+        color: var(--clr1);
+        font-weight: bold;
+    }
+
+    .nav-container-inner {
+        width: 100%;
+
+        .app-nav {
+            grid-column: 2;
+            display: flex;
+            height: 40px;
+            position: relative;
+
+            div {
+                width: 140px;
+                height: 100%;
+                display: grid;
+                place-content: center;
+                position: relative;
+                overflow: hidden;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 140px;
+                    height: 4px;
+                    background: var(--gray3);
+
+                    transform: scaleX(0);
+                    transform-origin: center bottom;
+                    transition: transform .05s ease;
+                }
+
+                &:hover::after {
+                    transform: scaleX(1);
+                }
+
+                .active {
+                    color: var(--clr1);
+                    font-weight: bold
+                }
+
+            }
+        }
+
+    }
+}
+
+
+.nav-container-subgrid {
+    display: grid;
+    grid-template-columns:
+        minmax(16px, 1fr) minmax(150px, 600px) minmax(150px, 600px) minmax(16px, 1fr);
+}
+
+
+.cart-container,
+.lang-btns {
     display: flex;
-    gap: 15px;
+    justify-self: flex-end;
+    align-self: center;
+    gap: 5px;
+}
+
+
+.lang-btns {
+    button {
+        background-color: var(--gray2);
+
+        &:hover {
+            background-color: var(--clr1);
+            color: var(--gray2);
+        }
+    }
+}
+
+.header-main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-container {
+    position: relative;
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .login-form {
+        display: grid;
+        place-items: center;
+    }
+
+    .login-container {
+        display: grid;
+        gap: 10px;
+        font-size: 0.8rem;
+    }
+
+    .user-login-container {
+        background-color: whitesmoke;
+        color: var(--gray3);
+        border-radius: 5px;
+        padding: 1rem;
+        width: 200px;
+
+        position: absolute;
+        top: 5;
+        right: 0;
+        z-index: 3;
+
+        display: grid;
+        place-items: center;
+
+
+        button {
+            background-color: var(--gray3);
+            color: var(--gray2);
+
+            &:hover {
+                background-color: var(--clr2);
+                color: var(--gray3);
+            }
+        }
+    }
 }

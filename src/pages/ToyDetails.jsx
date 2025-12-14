@@ -4,6 +4,7 @@ import { utilService } from "../services/util.service.js"
 import { Link, useParams, useNavigate } from "react-router-dom"
 import { Popup } from '../cmps/Popup'
 import { Chat } from '../cmps/Chat'
+import { getToyImage } from '../services/image.service.js'
 import { useTranslation } from "react-i18next"
 
 export function ToyDetails() {
@@ -42,6 +43,10 @@ export function ToyDetails() {
     return (
         <section className="toy-details">
             <h1>{t("toyDetails.toy", "Toy: ")} {toy.name}</h1>
+
+            <div className="img-container">
+                <img src={getToyImage(toy.imgUrl)} alt={toy.name} />
+            </div>
 
             <h5>{t("toyDetails.price", "Price: ")} ${toy.price}</h5>
 

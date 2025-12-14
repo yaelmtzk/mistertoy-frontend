@@ -1,3 +1,7 @@
+.full{
+  grid-column: 1 / -1;
+}
+
 /* flex helpers */
 
 .flex {
@@ -40,18 +44,15 @@
     font-family: fa;
 }
 
-.fa.fa-facebook::before {
-    content: "\f39e";
-}
+.badge{
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: -10px;
+    right:-10px;
 
-.fa.fa-twitter::before {
-    content: "\f099";
-}
-
-.fa.fa-dribbble::before {
-    content: "\f17d";
-}
-
-.fa.fa-behance::before {
-    content: "\f1b4";
+    height: 15px;
+    width: 15px;
+    font-size: 0.6rem;
+    border-radius: 50%;
 }

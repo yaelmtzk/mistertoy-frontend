@@ -51,7 +51,7 @@ export function GoogleMap() {
     ]
 
     return (
-        <div className="map" style={{ height: '100vh', width: '100%' }}>
+        <div className="map" style={{ height: '80vh', width: '80%' }}>
             <APIProvider apiKey={API_KEY}>
                 <Map
                     defaultCenter={coords}

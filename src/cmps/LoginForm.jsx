@@ -47,11 +47,12 @@ export function LoginForm({ onLogin, isSignup }) {
         />
       )}
 
-      <button>
-        {isSignup
-          ? t("loginForm.signup", "Signup")
-          : t("loginForm.login", "Login")}
-      </button>
+        {isSignup ?
+          <button title="Signup">{t("loginForm.signup", "Signup")}</button>
+          : <button title={t("loginForm.login", "Login")}>
+            <i className="fa-solid fa-arrow-right-to-bracket">            </i>
+          </button>
+        }
     </form>
   )
 }

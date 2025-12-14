@@ -1,0 +1,26 @@
+
+.shadow-scale-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.shadow-scale-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.pulse-hover:hover {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.10);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+

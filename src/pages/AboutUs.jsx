@@ -5,7 +5,7 @@ export function AboutUs() {
   const { t } = useTranslation();
 
   return (
-    <section>
+    <section className="about-us">
       <h2>{t("about.title", "About Us")}</h2>
 
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni aperiam quo veniam velit dolor reprehenderit.</p>
