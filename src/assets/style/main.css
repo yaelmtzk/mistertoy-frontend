@@ -15,6 +15,8 @@
 @import 'cmps/HomePage.css';
 @import 'cmps/AboutUs.css';
 @import 'cmps/Dashboard.css';
+@import 'cmps/Login.css';
+@import 'cmps/Signup.css';
 @import 'cmps/AppHeader.css';
 @import 'cmps/AppFooter.css';
 @import 'cmps/ToggleBtn.css';

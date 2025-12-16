@@ -43,9 +43,11 @@ function getEmptyToy() {
 }
 
 function getRandomToy() {
+  const name = _getRandToyName()
   return {
-    name: _getRandToyName(),
-    price: utilService.getRandomIntInclusive(20, 200)
+    name,
+    price: utilService.getRandomIntInclusive(20, 200),
+    // labels: _getRandLabels(name)
   }
 }
 
@@ -93,4 +95,20 @@ function getLabels(toys) {
         toy.labels : []))]
 }
 
+// function _getRandLabels(name) {
+//     const labels = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll',
+//         'Puzzle', 'Outdoor', 'Battery Powered']
+        
+//     const res = new Set()
+//     const match = labels.find(lbl =>
+//         lbl.toLowerCase().includes(name.toLowerCase())
+//     )
+//     if (match) res.add(match)
+
+//     while (res.size < 3) {
+//         const randomLabel = labels[utilService.getRandomIntInclusive(0, labels.length - 1)]
+//         res.add(randomLabel)
+//     }
+//     return [...res]
+// }
 

@@ -15,6 +15,7 @@ export function ToyIndex() {
   const toys = useSelector(storeState => storeState.toyModule.toys)
   const filterBy = useSelector(storeState => storeState.toyModule.filterBy)
   const isLoading = useSelector(storeState => storeState.toyModule.isLoading)
+  const user = useSelector(storeState => storeState.userModule.loggedInUser)
 
   useEffect(() => {
     loadToys()
@@ -72,33 +73,40 @@ export function ToyIndex() {
   }
 
   return (
-      <section className="index-section">
-        <button>
-          <Link to="/toy/edit">
-          {t('toyIndex.add_toy', 'Add Toy')}
-        </Link>
-        </button>
+    <section className="index-section">
 
-        <button
-          className='add-btn'
-          onClick={onAddToy}
-        >{t('toyIndex.add_random', 'Add Random Toy')}</button>
+      {user && user.isAdmin &&
+        (<div className='add-toy-section'>
+          <button>
+            <Link to="/toy/edit">
+              {t('toyIndex.add_toy', 'Add Toy')}
+            </Link>
+          </button>
 
-        <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
+          <button
+            className='add-btn'
+            onClick={onAddToy}
+          >{t('toyIndex.add_random', 'Add Random Toy')}</button>
+        </div>)
+      }
 
-        {!isLoading
-          ? (
-            <ToyList
-              toys={toys}
-              onRemoveToy={onRemoveToy}
-              onEditToy={onEditToy}
-              addToCart={addToCart}
-            />
-          )
-          : <div>{t('toyIndex.loading', 'Loading...')}</div>
-        }
 
-        <hr />
-      </section>
+
+      <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
+
+      {!isLoading
+        ? (
+          <ToyList
+            toys={toys}
+            onRemoveToy={onRemoveToy}
+            onEditToy={onEditToy}
+            addToCart={addToCart}
+          />
+        )
+        : <div>{t('toyIndex.loading', 'Loading...')}</div>
+      }
+
+      <hr />
+    </section>
   )
 }

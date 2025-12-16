@@ -21,7 +21,6 @@ export function loadToys() {
         })
 }
 
-
 export function removeToy(toyId) {
     return toyService.remove(toyId)
         .then(() => {

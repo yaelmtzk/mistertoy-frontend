@@ -26,10 +26,7 @@ export function AppHeader() {
             .finally(() => {
                 dispatch({ type: TOGGLE_USER_IS_SHOWN })
                 navigate('/toy')
-            }
-
-            )
-
+            })
     }
 
     function onToggleCart(ev) {
@@ -40,7 +37,7 @@ export function AppHeader() {
     function onToggleUser(ev) {
         ev.preventDefault()
         dispatch({ type: TOGGLE_USER_IS_SHOWN })
-        navigate('/toy')
+
     }
 
     return (
@@ -66,10 +63,10 @@ export function AppHeader() {
                                     <div className='hello-box'>
                                         <p>{t("app.hello_user", "Hello")} <strong>{user.fullname + ' '}</strong> </p>
 
-                                        <a><NavLink to={`/user/${user._id}`}>
+                                        <div><NavLink to={`/user/${user._id}`}>
                                         Profile
                                         <i className="fa-solid fa-circle-arrow-right"></i>
-                                        </NavLink></a>
+                                        </NavLink></div>
 
                                         <p>Credits: ${user.credits.toLocaleString()}</p>
 
@@ -87,7 +84,7 @@ export function AppHeader() {
 
                 </div>
 
-                <div className='nav-container full'>
+                <div className='nav-container'>
                     <div className="nav-container-inner nav-container-subgrid">
                         <nav className="app-nav">
                             <div><NavLink to="/">{t("app.home", "Home")}</NavLink></div>
@@ -109,9 +106,6 @@ export function AppHeader() {
                     </div>
 
                 </div>
-
-
-
 
             </section>
             <UserMsg />

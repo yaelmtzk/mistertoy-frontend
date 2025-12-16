@@ -1,0 +1,23 @@
+.signup-container {
+    height: 100%;
+
+    button {
+        width: 60px;
+        background-color: var(--gray3);
+        color: var(--gray2);
+        justify-self: center;
+
+        &:hover {
+            background-color: var(--clr2);
+            color: var(--gray3);
+        }
+
+    }
+}
+
+.signup-form {
+    height: 100%;
+    display: grid;
+    place-content: center;
+    gap: 20px;
+}

@@ -1,4 +1,4 @@
-import { httpService } from "./http.service"
+import { httpService } from "./http.service.js"
 
 const BASE_URL = 'auth/'
 const STORAGE_KEY_LOGGEDIN = 'loggedinUser'
@@ -17,14 +17,14 @@ function login({ username, password }) {
 
     return httpService.post(BASE_URL + 'login', { username, password })
         .then(user => {
-            console.log('user FETCH:', user)
+            // console.log('user FETCH:', user)
             if (user) return _setLoggedinUser(user)
             else return Promise.reject('Invalid login')
         })
 }
 
 function signup({ username, password, fullname }) {
-    const user = { username, password, fullname, credits: 10000 }
+    const user = { username, password, fullname, credits: 10000, isAdmin: false }
     return httpService.post(BASE_URL + 'signup', user)
         .then(user => {
             if (user) return _setLoggedinUser(user)
@@ -53,13 +53,12 @@ function getById(userId) {
     return httpService.get('user/' + userId)
 }
 
-
 function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN))
 }
 
 function _setLoggedinUser(user) {
-    const userToSave = { _id: user._id, fullname: user.fullname, credits: user.credits }
+    const userToSave = { _id: user._id, fullname: user.fullname, credits: user.credits, isAdmin: user.isAdmin }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN, JSON.stringify(userToSave))
     return userToSave
 }

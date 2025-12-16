@@ -33,7 +33,10 @@
     }
 
     .nav-container-inner {
-        width: 100%;
+        width: 100vw;
+        display: grid;
+        grid-template-columns:
+            minmax(16px, 1fr) minmax(150px, 600px) minmax(150px, 600px) minmax(16px, 1fr);
 
         .app-nav {
             grid-column: 2;
@@ -67,24 +70,11 @@
                     transform: scaleX(1);
                 }
 
-                .active {
-                    color: var(--clr1);
-                    font-weight: bold
-                }
-
             }
         }
 
     }
 }
-
-
-.nav-container-subgrid {
-    display: grid;
-    grid-template-columns:
-        minmax(16px, 1fr) minmax(150px, 600px) minmax(150px, 600px) minmax(16px, 1fr);
-}
-
 
 .cart-container,
 .lang-btns {
@@ -116,11 +106,6 @@
 
     a:hover {
         text-decoration: underline;
-    }
-
-    .login-form {
-        display: grid;
-        place-items: center;
     }
 
     .login-container {

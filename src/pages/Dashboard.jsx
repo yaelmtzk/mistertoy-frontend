@@ -9,13 +9,16 @@ import { useTranslation } from "react-i18next"
 
 export function Dashboard() {
   const { t } = useTranslation()
-  const toys = useSelector(storeState => storeState.toyModule.toys);
+  const toys = useSelector(storeState => storeState.toyModule.toys)
 
+  
   useEffect(() => {
     loadToys()
   }, [])
 
-  const toyLabels = toyService.getLabels(toys);
+  const toyLabels = toyService.getLabels(toys)
+
+  console.log(toyLabels)
 
   return (
     <section className="toy-stats">

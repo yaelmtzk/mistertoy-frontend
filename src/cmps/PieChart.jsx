@@ -12,7 +12,10 @@ ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
 export function PieChart({ labels, toys }) {
   const { t } = useTranslation()
-
+  console.log(labels);
+  console.log(toys);
+  
+  
   const data = {
     labels,
     datasets: [

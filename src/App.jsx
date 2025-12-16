@@ -19,6 +19,8 @@ import { ToyEdit } from './pages/ToyEdit.jsx'
 import { ToyDetails } from './pages/ToyDetails.jsx'
 import { UserDetails } from './pages/UserDetails.jsx'
 import { Dashboard } from './pages/Dashboard.jsx'
+import { Login } from './pages/Login.jsx'
+import { Signup } from './pages/Signup.jsx'
 import { Provider } from 'react-redux'
 
 
@@ -39,6 +41,8 @@ export default function App() {
                             <Route element={<ToyDetails />} path="/toy/:toyId" />
                             <Route element={<UserDetails />} path="/user/:userId" />
                             <Route element={<Dashboard />} path="/dashboard" />
+                            <Route element={<Login/>} path="/login" />
+                            <Route element={<Signup/>} path="/signup" />
                         </Routes>
                     </main>
                     <AppFooter />

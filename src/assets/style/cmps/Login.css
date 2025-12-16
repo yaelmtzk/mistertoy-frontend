@@ -1,0 +1,23 @@
+.login-container {
+    height: 100%;
+}
+
+.login-form {
+    height: 100%;
+    display: grid;
+    place-content: center;
+    gap: 20px;
+
+    button {
+        background-color: var(--gray3);
+        color: var(--gray2);
+        width: 50px;
+        justify-self: center;
+
+        &:hover {
+            background-color: var(--clr2);
+            color: var(--gray3);
+        }
+
+    }
+}

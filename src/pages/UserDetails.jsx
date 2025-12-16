@@ -17,7 +17,6 @@ export function UserDetails() {
   function loadUser() {
     userService.getById(userId)
       .then(user => {
-        console.log('user:', user)
         setUser(user)
       })
       .catch(err => {

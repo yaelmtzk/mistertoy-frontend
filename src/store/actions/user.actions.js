@@ -5,10 +5,8 @@ import { SET_USER,  SET_USER_CREDITS } from "../reducers/user.reducer.js"
 import { store } from "../store.js"
 
 export function login(credentials) {
-    console.log('credentials:', credentials)
     return userService.login(credentials)
         .then((user) => {
-            console.log('user login:', user)
             store.dispatch({ type: SET_USER, user })
         })
         .catch((err) => {

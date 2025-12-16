@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 import { getToyImage } from '../services/image.service.js'
+import { useSelector } from 'react-redux'
 
 export function ToyPreview({ toy }) {
   const { t } = useTranslation()
+  const user = useSelector(storeState => storeState.userModule.loggedInUser) 
 
   return (
     <article>
@@ -21,7 +23,7 @@ export function ToyPreview({ toy }) {
         <span>${toy.price.toLocaleString()}</span>
       </p>
 
-      {toy.creator && (
+      {user && user.adm && (
         <p>
           {t("toyPreview.creator", "Creator:")}{" "}
           <Link to={`/user/${toy.creator._id}`}>
